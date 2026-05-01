@@ -40,10 +40,10 @@ async def search_properties(search_request: SearchRequest, request: Request):
         List of matching properties
     """
     try: 
-        properties = request.app.state.property_service.search_properties(query=search_request.query, limit=search_request.limit) 
+        properties = await request.app.state.property_service.search_properties(query=search_request.query, limit=search_request.limit) 
         return {
             "status": "success",
-            "properties": search_request.query,
+            "query": search_request.query,
             "limit": search_request.limit,
             "count": len(properties),
             "properties": properties
