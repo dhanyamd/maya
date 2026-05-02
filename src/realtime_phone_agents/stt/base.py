@@ -11,7 +11,7 @@ class STTModel(ABC):
     """
 
     @abstractmethod
-    async def stt(self, audio_data: Union[bytes, str], **kwargs) -> str:
+    def stt(self, audio_data: Union[bytes, str], **kwargs) -> str:
         """
         Convert speech audio to text.
 

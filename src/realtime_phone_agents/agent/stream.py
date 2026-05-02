@@ -86,7 +86,7 @@ class VoiceAgentStream(Stream):
         response.say("Connecting to the AI assistant")
         connect = Connect() 
 
-        hostname = request.headers.get("x-forwaded-host", request.url.hostname)
+        hostname = request.headers.get("x-forwarded-host", request.url.hostname)
         path = request.url.path.removesuffix("/telephone/incoming")
         connect.stream(url=f"wss://{hostname}{path}/telephone/handler")
         response.append(connect)

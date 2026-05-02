@@ -27,7 +27,7 @@ async def start_call(call_request: CallRequest):
         )
         call = client.calls.create(
             to=call_request.to_number,
-            from_=settings.twilio.phone_number,
+            from_=call_request.from_number,
             url=f"{call_request.voice_agent_url}/voice/telephone/incoming",
         )
 

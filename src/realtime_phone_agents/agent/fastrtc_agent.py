@@ -66,8 +66,8 @@ class FastRTCAgent:
         self._voice_effect = voice_effect or get_sound_effect()
         self._avatar = get_avatar(avatar) if avatar else None
         
-        self.react_agent = self._create_react_agent(
-            system_prompt=self._avatar.get_system_prompt(),
+        self._react_agent = self._create_react_agent(
+            system_prompt=self._avatar.get_system_prompt() if self._avatar else None,
             tools=tools
         )
         self._thread_id = thread_id 
